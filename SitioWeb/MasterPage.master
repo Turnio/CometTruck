@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+        .auto-style2 {
+            width: 470px;
+            height: 163px;
+            text-align: center;
+        }
+        .auto-style3 {
+            width: 795px;
+            height: 163px;
+        }
+        .auto-style4 {
+            height: 163px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+
+        <table style="width:100%">
+            <tr>
+                <td class="auto-style2"><img src="IMG/comet.png"/></td>
+                <td class="auto-style3"></td>
+                <td class="auto-style4"><img src="IMG/astroIN.png" /></td>
+                <td class="auto-style4"><img src="IMG/astroOUT.png" /></td>
+            </tr>
+            <tr class="auto-style1">
+                <td colspan="4" >
+                     <asp:Menu ID="menuArbol" runat="server" Orientation="Horizontal" Height="83px" Width="100%" BackColor="#ff9933" ForeColor="White" Font-Names="Microsoft YaHei" Font-Bold="True" Font-Size="XX-Large" Font-Strikeout="False">
+                        <DynamicMenuItemStyle BackColor="#FF9900" Font-Size="Large" ForeColor="White" Width="100%" />
+                        <Items>
+                            <asp:MenuItem Text="INICIO" Value="INICIO"></asp:MenuItem>
+                            <asp:MenuItem Text="COTIZAR" Value="COTIZAR"></asp:MenuItem>
+                            <asp:MenuItem Text="QUIÉNES SOMOS" Value="QUIÉNES SOMOS"></asp:MenuItem>
+                            <asp:MenuItem Text="CONTACTO" Value="CONTACTO"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+
+                 </td>
+            </tr>
+                <tr>
+                    <td colspan="4">
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </tr>
+      </table>
+    </form>
+
+</body>
+</html>
