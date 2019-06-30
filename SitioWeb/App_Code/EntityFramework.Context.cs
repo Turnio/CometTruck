@@ -34,5 +34,4 @@ public partial class mudanzaEntities : DbContext
     public virtual DbSet<TipoCuenta> TipoCuenta { get; set; }
     public virtual DbSet<TransferenciaBancaria> TransferenciaBancaria { get; set; }
     public virtual DbSet<Vehiculo> Vehiculo { get; set; }
-    public virtual DbSet<Empresa> Empresa { get; set; }
 }

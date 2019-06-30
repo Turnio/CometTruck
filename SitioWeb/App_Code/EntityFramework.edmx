@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bancos">
           <Key>
             <PropertyRef Name="idBancos" />
@@ -71,16 +71,15 @@
           <Property Name="servicioInventario" Type="bit" />
           <Property Name="estado" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="Empresa">
-          <Key>
-            <PropertyRef Name="idEmpresa" />
-          </Key>
-          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" />
           <Property Name="rut" Type="varchar" MaxLength="50" />
           <Property Name="razonsocial" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="direccion" Type="varchar" MaxLength="50" />
-        </EntityType>
+        </EntityType>-->
         <EntityType Name="Fletero">
           <Key>
             <PropertyRef Name="idFletero" />
@@ -148,7 +147,6 @@
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fletero" EntityType="Self.Fletero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Licencias" EntityType="Self.Licencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
@@ -156,7 +154,8 @@
           <EntitySet Name="TransferenciaBancaria" EntityType="Self.TransferenciaBancaria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mudanzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -299,18 +298,7 @@
           <EntitySet Name="TipoCuenta" EntityType="Self.TipoCuenta" />
           <EntitySet Name="TransferenciaBancaria" EntityType="Self.TransferenciaBancaria" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
-          <EntitySet Name="Empresa" EntityType="mudanzaModel.Empresa" />
         </EntityContainer>
-        <EntityType Name="Empresa">
-          <Key>
-            <PropertyRef Name="idEmpresa" />
-          </Key>
-          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="razonsocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -452,17 +440,6 @@
                 <ScalarProperty Name="patente" ColumnName="patente" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="vencRevTec" ColumnName="vencRevTec" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Empresa">
-            <EntityTypeMapping TypeName="mudanzaModel.Empresa">
-              <MappingFragment StoreEntitySet="Empresa">
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="razonsocial" ColumnName="razonsocial" />
-                <ScalarProperty Name="rut" ColumnName="rut" />
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

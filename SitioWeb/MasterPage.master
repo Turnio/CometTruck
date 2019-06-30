@@ -26,7 +26,7 @@
         }
     </style>
 </head>
-<body>
+<body style="font-family: Microsoft YaHei">
 
     <form id="form1" runat="server">
 
@@ -40,7 +40,7 @@
             <tr class="auto-style1">
                 <td colspan="4" >
                      <asp:Menu ID="menuArbol" runat="server" Orientation="Horizontal" Height="83px" Width="100%" BackColor="#ff9933" ForeColor="White" Font-Names="Microsoft YaHei" Font-Bold="True" Font-Size="XX-Large" Font-Strikeout="False">
-                        <DynamicMenuItemStyle BackColor="#FF9900" Font-Size="Large" ForeColor="White" Width="100%" />
+                        <DynamicMenuItemStyle BackColor="#ff9933" Font-Size="Large" ForeColor="White" Width="100%" />
                         <Items>
                             <asp:MenuItem Text="INICIO" Value="INICIO"></asp:MenuItem>
                             <asp:MenuItem Text="COTIZAR" Value="COTIZAR"></asp:MenuItem>
@@ -51,13 +51,12 @@
 
                  </td>
             </tr>
-                <tr>
-                    <td colspan="4">
-                        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </td>
-                </tr>
-            </tr>
+             <tr>
+                 <td colspan="4">
+                     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                     </asp:ContentPlaceHolder>
+                 </td>
+             </tr>
       </table>
     </form>
 

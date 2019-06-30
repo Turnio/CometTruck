@@ -71,15 +71,6 @@ public partial class Cotizacion
     public string estado { get; set; }
 }
 
-public partial class Empresa
-{
-    public int idEmpresa { get; set; }
-    public string rut { get; set; }
-    public string razonsocial { get; set; }
-    public string email { get; set; }
-    public string direccion { get; set; }
-}
-
 public partial class Fletero
 {
     public int idFletero { get; set; }
