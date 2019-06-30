@@ -42,9 +42,9 @@
                      <asp:Menu ID="menuArbol" runat="server" Orientation="Horizontal" Height="83px" Width="100%" BackColor="#ff9933" ForeColor="White" Font-Names="Microsoft YaHei" Font-Bold="True" Font-Size="XX-Large" Font-Strikeout="False">
                         <DynamicMenuItemStyle BackColor="#ff9933" Font-Size="Large" ForeColor="White" Width="100%" />
                         <Items>
-                            <asp:MenuItem Text="INICIO" Value="INICIO"></asp:MenuItem>
-                            <asp:MenuItem Text="COTIZAR" Value="COTIZAR"></asp:MenuItem>
-                            <asp:MenuItem Text="QUIÉNES SOMOS" Value="QUIÉNES SOMOS"></asp:MenuItem>
+                            <asp:MenuItem Text="INICIO" Value="INICIO" NavigateUrl="~/inicio.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="COTIZAR" Value="COTIZAR" NavigateUrl="~/Cotizar.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="QUIÉNES SOMOS" Value="QUIÉNES SOMOS" NavigateUrl="~/QuienesSomos.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="CONTACTO" Value="CONTACTO"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
