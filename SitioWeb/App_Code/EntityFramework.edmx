@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="idBancos" />
+          </Key>
+          <Property Name="idBancos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Capacidad">
+          <Key>
+            <PropertyRef Name="idCapacidad" />
+          </Key>
+          <Property Name="idCapacidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaraKG" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rut" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidopaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidomaterno" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Comuna">
+          <Key>
+            <PropertyRef Name="idComuna" />
+          </Key>
+          <Property Name="idComuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="codigopostal" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idCotizacion" />
+          </Key>
+          <Property Name="idCotizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="rut" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="bigint" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="horaInicio" Type="time" Precision="7" />
+          <Property Name="calleOrigen" Type="varchar" MaxLength="50" />
+          <Property Name="numeroOrigen" Type="varchar" MaxLength="50" />
+          <Property Name="comunaOrigen" Type="varchar" MaxLength="50" />
+          <Property Name="tipoviviendaOrigen" Type="varchar" MaxLength="50" />
+          <Property Name="tipoVehiculo" Type="varchar" MaxLength="50" />
+          <Property Name="nombreReceptor" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoReceptor" Type="varchar" MaxLength="50" />
+          <Property Name="rutReceptor" Type="varchar" MaxLength="50" />
+          <Property Name="telefonoReceptor" Type="bigint" />
+          <Property Name="emailReceptor" Type="varchar" MaxLength="50" />
+          <Property Name="fechaTermino" Type="date" />
+          <Property Name="horaTermino" Type="time" Precision="7" />
+          <Property Name="calleDestino" Type="varchar" MaxLength="50" />
+          <Property Name="numeroDestino" Type="varchar" MaxLength="50" />
+          <Property Name="comunaDestino" Type="varchar" MaxLength="50" />
+          <Property Name="tipoviviendaDestino" Type="varchar" MaxLength="50" />
+          <Property Name="servicioPioneta" Type="bit" />
+          <Property Name="servicioEmbalaje" Type="bit" />
+          <Property Name="servicioInventario" Type="bit" />
+          <Property Name="estado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Empresa">
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="rut" Type="varchar" MaxLength="50" />
+          <Property Name="razonsocial" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Fletero">
+          <Key>
+            <PropertyRef Name="idFletero" />
+          </Key>
+          <Property Name="idFletero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rut" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidopaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidomaterno" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Licencias">
+          <Key>
+            <PropertyRef Name="idLicencias" />
+          </Key>
+          <Property Name="idLicencias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clase" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MetodoPago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TipoCuenta">
+          <Key>
+            <PropertyRef Name="idTipoCuent" />
+          </Key>
+          <Property Name="idTipoCuent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TransferenciaBancaria">
+          <Key>
+            <PropertyRef Name="idTransferenciaBancaria" />
+          </Key>
+          <Property Name="idTransferenciaBancaria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="banco" Type="varchar" MaxLength="50" />
+          <Property Name="tipocuenta" Type="varchar" MaxLength="50" />
+          <Property Name="numerocuenta" Type="varchar" MaxLength="50" />
+          <Property Name="rut" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellidopaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidomaterno" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="monto" Type="int" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="marca" Type="varchar" MaxLength="50" />
+          <Property Name="modelo" Type="varchar" MaxLength="50" />
+          <Property Name="ano" Type="int" />
+          <Property Name="patente" Type="varchar" MaxLength="50" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+          <Property Name="vencRevTec" Type="date" />
+        </EntityType>
+        <EntityContainer Name="mudanzaModelStoreContainer">
+          <EntitySet Name="Bancos" EntityType="Self.Bancos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Capacidad" EntityType="Self.Capacidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fletero" EntityType="Self.Fletero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Licencias" EntityType="Self.Licencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCuenta" EntityType="Self.TipoCuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransferenciaBancaria" EntityType="Self.TransferenciaBancaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mudanzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="idBancos" />
+          </Key>
+          <Property Name="idBancos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Capacidad">
+          <Key>
+            <PropertyRef Name="idCapacidad" />
+          </Key>
+          <Property Name="idCapacidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaraKG" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidopaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidomaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Comuna">
+          <Key>
+            <PropertyRef Name="idComuna" />
+          </Key>
+          <Property Name="idComuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codigopostal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idCotizacion" />
+          </Key>
+          <Property Name="idCotizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int64" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="horaInicio" Type="Time" Precision="7" />
+          <Property Name="calleOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comunaOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoviviendaOrigen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoVehiculo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombreReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rutReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefonoReceptor" Type="Int64" />
+          <Property Name="emailReceptor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaTermino" Type="DateTime" Precision="0" />
+          <Property Name="horaTermino" Type="Time" Precision="7" />
+          <Property Name="calleDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numeroDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comunaDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipoviviendaDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="servicioPioneta" Type="Boolean" />
+          <Property Name="servicioEmbalaje" Type="Boolean" />
+          <Property Name="servicioInventario" Type="Boolean" />
+          <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Fletero">
+          <Key>
+            <PropertyRef Name="idFletero" />
+          </Key>
+          <Property Name="idFletero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidopaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidomaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Licencias">
+          <Key>
+            <PropertyRef Name="idLicencias" />
+          </Key>
+          <Property Name="idLicencias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MetodoPago">
+          <Key>
+            <PropertyRef Name="idMetodoPago" />
+          </Key>
+          <Property Name="idMetodoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TipoCuenta">
+          <Key>
+            <PropertyRef Name="idTipoCuent" />
+          </Key>
+          <Property Name="idTipoCuent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TransferenciaBancaria">
+          <Key>
+            <PropertyRef Name="idTransferenciaBancaria" />
+          </Key>
+          <Property Name="idTransferenciaBancaria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipocuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerocuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidopaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidomaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="monto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ano" Type="Int32" />
+          <Property Name="patente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vencRevTec" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="mudanzaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bancos" EntityType="Self.Bancos" />
+          <EntitySet Name="Capacidad" EntityType="Self.Capacidad" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Comuna" EntityType="Self.Comuna" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" />
+          <EntitySet Name="Fletero" EntityType="Self.Fletero" />
+          <EntitySet Name="Licencias" EntityType="Self.Licencias" />
+          <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" />
+          <EntitySet Name="TipoCuenta" EntityType="Self.TipoCuenta" />
+          <EntitySet Name="TransferenciaBancaria" EntityType="Self.TransferenciaBancaria" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mudanzaModelStoreContainer" CdmEntityContainer="mudanzaEntities">
+          <EntitySetMapping Name="Bancos">
+            <EntityTypeMapping TypeName="mudanzaModel.Bancos">
+              <MappingFragment StoreEntitySet="Bancos">
+                <ScalarProperty Name="idBancos" ColumnName="idBancos" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capacidad">
+            <EntityTypeMapping TypeName="mudanzaModel.Capacidad">
+              <MappingFragment StoreEntitySet="Capacidad">
+                <ScalarProperty Name="idCapacidad" ColumnName="idCapacidad" />
+                <ScalarProperty Name="TaraKG" ColumnName="TaraKG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="mudanzaModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidopaterno" ColumnName="apellidopaterno" />
+                <ScalarProperty Name="apellidomaterno" ColumnName="apellidomaterno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comuna">
+            <EntityTypeMapping TypeName="mudanzaModel.Comuna">
+              <MappingFragment StoreEntitySet="Comuna">
+                <ScalarProperty Name="idComuna" ColumnName="idComuna" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigopostal" ColumnName="codigopostal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacion">
+            <EntityTypeMapping TypeName="mudanzaModel.Cotizacion">
+              <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="idCotizacion" ColumnName="idCotizacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="calleOrigen" ColumnName="calleOrigen" />
+                <ScalarProperty Name="numeroOrigen" ColumnName="numeroOrigen" />
+                <ScalarProperty Name="comunaOrigen" ColumnName="comunaOrigen" />
+                <ScalarProperty Name="tipoviviendaOrigen" ColumnName="tipoviviendaOrigen" />
+                <ScalarProperty Name="tipoVehiculo" ColumnName="tipoVehiculo" />
+                <ScalarProperty Name="nombreReceptor" ColumnName="nombreReceptor" />
+                <ScalarProperty Name="apellidoReceptor" ColumnName="apellidoReceptor" />
+                <ScalarProperty Name="rutReceptor" ColumnName="rutReceptor" />
+                <ScalarProperty Name="telefonoReceptor" ColumnName="telefonoReceptor" />
+                <ScalarProperty Name="emailReceptor" ColumnName="emailReceptor" />
+                <ScalarProperty Name="fechaTermino" ColumnName="fechaTermino" />
+                <ScalarProperty Name="horaTermino" ColumnName="horaTermino" />
+                <ScalarProperty Name="calleDestino" ColumnName="calleDestino" />
+                <ScalarProperty Name="numeroDestino" ColumnName="numeroDestino" />
+                <ScalarProperty Name="comunaDestino" ColumnName="comunaDestino" />
+                <ScalarProperty Name="tipoviviendaDestino" ColumnName="tipoviviendaDestino" />
+                <ScalarProperty Name="servicioPioneta" ColumnName="servicioPioneta" />
+                <ScalarProperty Name="servicioEmbalaje" ColumnName="servicioEmbalaje" />
+                <ScalarProperty Name="servicioInventario" ColumnName="servicioInventario" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fletero">
+            <EntityTypeMapping TypeName="mudanzaModel.Fletero">
+              <MappingFragment StoreEntitySet="Fletero">
+                <ScalarProperty Name="idFletero" ColumnName="idFletero" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidopaterno" ColumnName="apellidopaterno" />
+                <ScalarProperty Name="apellidomaterno" ColumnName="apellidomaterno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Licencias">
+            <EntityTypeMapping TypeName="mudanzaModel.Licencias">
+              <MappingFragment StoreEntitySet="Licencias">
+                <ScalarProperty Name="idLicencias" ColumnName="idLicencias" />
+                <ScalarProperty Name="clase" ColumnName="clase" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetodoPago">
+            <EntityTypeMapping TypeName="mudanzaModel.MetodoPago">
+              <MappingFragment StoreEntitySet="MetodoPago">
+                <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCuenta">
+            <EntityTypeMapping TypeName="mudanzaModel.TipoCuenta">
+              <MappingFragment StoreEntitySet="TipoCuenta">
+                <ScalarProperty Name="idTipoCuent" ColumnName="idTipoCuent" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransferenciaBancaria">
+            <EntityTypeMapping TypeName="mudanzaModel.TransferenciaBancaria">
+              <MappingFragment StoreEntitySet="TransferenciaBancaria">
+                <ScalarProperty Name="idTransferenciaBancaria" ColumnName="idTransferenciaBancaria" />
+                <ScalarProperty Name="banco" ColumnName="banco" />
+                <ScalarProperty Name="tipocuenta" ColumnName="tipocuenta" />
+                <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidopaterno" ColumnName="apellidopaterno" />
+                <ScalarProperty Name="apellidomaterno" ColumnName="apellidomaterno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculo">
+            <EntityTypeMapping TypeName="mudanzaModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="patente" ColumnName="patente" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="vencRevTec" ColumnName="vencRevTec" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
