@@ -2,16 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-        #borde{
-        border-radius: 0px 25px 25px 25px;
-        color: #336666;
-        border: 7px solid #ff9933;
-        height: 200px; 
-        text-align: unset;
-        width: 500px;
-        }
-        h1{
-           text-align: center;
+        #redondela{
+            border-radius: 0px 25px 25px 25px;
+            color: #336666;
+            border: 7px solid #ff9933;
+            height: 200px; 
+            /*padding: 50px;*/
+            text-align: unset;
+            width: 500px;
+           
+            /*margin: 50%;*/
         }
         .auto-style7 {
             width: 114px;
@@ -32,9 +32,10 @@
     <table>
         <tr>
             <td class="auto-style7"></td>
-            <td id="borde">
+            <td id="redondela">
                 <h1>BIENVENIDOS A RETIRALO</h1>
-                  <p class="auto-style8"> 
+                  <p class="auto-style8"> BIENVENIDOS A RETIRALO<br />
+                      <br />
                       Un servicio veloz y confiable<br />
                   </p>
             </td>
