@@ -44,7 +44,7 @@
     .auto-style15 {
     }
     .auto-style23 {
-        height: 26px;
+        height: 25px;
         width: 150px;
         }
         .auto-style27 {

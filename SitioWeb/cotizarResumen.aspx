@@ -107,11 +107,11 @@
             width: 241px;
         }
         .auto-style46 {
-            width: 452px;
+            width: 445px;
         }
         .auto-style47 {
             height: 24px;
-            width: 452px;
+            width: 445px;
         }
         .auto-style48 {
             height: 24px;
