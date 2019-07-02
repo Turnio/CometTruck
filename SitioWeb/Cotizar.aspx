@@ -10,7 +10,7 @@
         text-align: unset;
         width: 70%;
         margin: 0 auto;
-        padding: 15px 0px 30px 30px;
+        padding: 15px 50px 30px 30px;
         font-size: 14px;
         }
     input{
@@ -38,6 +38,9 @@
        font-size: 18px;
        font-weight: bold; 
     }
+    imgs{
+        margin-left: 100px;
+    }
     .auto-style15 {
     }
     .auto-style23 {
@@ -45,9 +48,6 @@
         width: 150px;
         }
         .auto-style27 {
-        }
-        .auto-style34 {
-            width: 147px;
         }
         .auto-style47 {
             width: 150px;
@@ -85,6 +85,40 @@
         }
         
 
+        .auto-style66 {
+            width: 116px;
+            height: 24px;
+        }
+        .auto-style67 {
+            width: 147px;
+            height: 24px;
+        }
+        .auto-style68 {
+            width: 62px;
+            height: 24px;
+        }
+        .auto-style70 {
+            width: 134px;
+            height: 24px;
+        }
+        .auto-style71 {
+            height: 24px;
+        }
+        .auto-style72 {
+            width: 111px;
+            height: 24px;
+        }
+        .auto-style73 {
+            width: 150px;
+            height: 24px;
+        }
+        
+
+        .auto-style75 {
+            width: 147px;
+        }
+        
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -107,29 +141,29 @@
     <tr>
         <td class="auto-style58">Nombre</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtNombre" placeholder="Nombres" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtNombre" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Dirección</td>
         <td class="auto-style64">
-            <asp:TextBox ID="txtCalle" placeholder="Calle" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtCalle" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style49"></td>
         <td class="auto-style60">Tipo de camión</td>
                 <td class="auto-style48">
-            <asp:DropDownList ID="droplistTVehiculo" runat="server">
+            <asp:DropDownList ID="DropListTVehiculo" runat="server">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
         <td class="auto-style58">Apellidos</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtApellidos" placeholder="Apellidos" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtApellidos" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Número</td>
         <td class="auto-style64">
-            <asp:TextBox ID="txtNumDir" placeholder="123" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtNumDir" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
@@ -138,7 +172,7 @@
     <tr>
         <td class="auto-style58">Rut</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtRut" placeholder="12345678-9" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtRut" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Comuna</td>
@@ -151,12 +185,12 @@
     <tr>
         <td class="auto-style58">Telefono</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtTelefono" placeholder="56 9 12345678" runat="server" Width="175px" TextMode="Phone"></asp:TextBox>
+            <asp:TextBox ID="txtTelefono" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Tipo de vivienda</td>
         <td class="auto-style64"> 
-            <asp:TextBox ID="txtTVivienda" placeholder="Casa/Departamento" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtTVivienda" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
@@ -165,7 +199,7 @@
     <tr>
         <td class="auto-style58">Email</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtEmail" placeholder="ejemplo@ejemplo.cl" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -177,7 +211,7 @@
     <tr>
         <td class="auto-style58">Fecha de retiro</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtFecha" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="txtFecha" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -189,7 +223,7 @@
     <tr>
         <td class="auto-style58">Hora de retiro</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtHora" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
+            <asp:TextBox ID="txtHora" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -213,12 +247,12 @@
     <tr>
         <td class="auto-style58">Nombre</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtNombreDestino" placeholder="Nombres" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtNombreDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Dirección de destino</td>
         <td class="auto-style64">
-            <asp:TextBox ID="txtCalleDestino" placeholder="Calle" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtCalleDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style49"></td>
         <td class="auto-style60"></td>
@@ -226,12 +260,12 @@
     <tr>
         <td class="auto-style58">Apellidos</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtApellidosDestino" placeholder="Apellidos" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtApellidosDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Número</td>
         <td class="auto-style64">
-            <asp:TextBox ID="txtNumDirDestino" placeholder="123" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtNumDirDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
@@ -240,7 +274,7 @@
     <tr>
         <td class="auto-style58">Rut</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtRutDestino" placeholder="12345678-9" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtRutDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Comuna</td>
@@ -254,12 +288,12 @@
     <tr>
         <td class="auto-style58">Teléfono</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtTelefonoDestino" placeholder="56 9 12345678" runat="server" Width="175px" TextMode="Phone"></asp:TextBox>
+            <asp:TextBox ID="txtTelefonoDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57">Tipo de vivienda</td>
         <td class="auto-style64">
-             <asp:TextBox ID="txtTViviendaDestino" placeholder="Casa/Departamento" runat="server" Width="175px"></asp:TextBox>
+             <asp:TextBox ID="txtTViviendaDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
@@ -268,7 +302,7 @@
     <tr>
         <td class="auto-style58">Email</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtEmailDestino" placeholder="ejemplo@ejemplo.cl" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
+            <asp:TextBox ID="txtEmailDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -280,7 +314,7 @@
     <tr>
         <td class="auto-style58">Fecha de llegada</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtFechaLlegada" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
+            <asp:TextBox ID="txtFechaLlegada" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -292,15 +326,101 @@
     <tr>
         <td class="auto-style58">Hora de llegada</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtHoraLlegada" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
+            <asp:TextBox ID="txtHoraLlegada" runat="server" Width="175px"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
-        <td class="auto-style60">
-            <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btnSiguiente"/>
+        <td class="auto-style60"></td>
+        <td class="auto-style48">
+            &nbsp;</td>
+    </tr>
+      <tr>
+        <td class="auto-style58">
+            <p class="redondela">3</p>
         </td>
+        <td class="titulo">Servicios Adicionales</td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60"></td>
+        <td class="auto-style48"></td>
+    </tr>
+    <tr>
+        <td class="auto-style58">Peoneta</td>
+        <td class="auto-style75">
+            <asp:CheckBox ID="checkPeoneta" runat="server" />
+            &nbsp;&nbsp;
+            <img class="imgs" src="IMG/peoneta.png"/>
+        </td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60"></td>
+        <td class="auto-style48"></td>
+    </tr>
+    <tr>
+        <td class="auto-style66"></td>
+        <td class="auto-style67"></td>
+        <td class="auto-style68"></td>
+        <td class="auto-style69"></td>
+        <td class="auto-style70"></td>
+        <td class="auto-style71"></td>
+        <td class="auto-style72"></td>
+        <td class="auto-style73"></td>
+    </tr>
+    <tr>
+        <td class="auto-style58">Embalaje</td>
+        <td class="auto-style75">
+            <asp:CheckBox ID="checkEmbalaje" runat="server" />
+            &nbsp;&nbsp;
+            <img class="imgs" src="IMG/embalaje.png"/>
+        </td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60"></td>
+        <td class="auto-style48"></td>
+    </tr>
+            <tr>
+        <td class="auto-style58">&nbsp;</td>
+        <td class="auto-style62"></td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60"></td>
+        <td class="auto-style48"></td>
+    </tr>
+     <tr>
+        <td class="auto-style58">Inventario</td>
+        <td class="auto-style75">
+            <asp:CheckBox ID="checkInventario" runat="server" />
+            &nbsp;&nbsp;
+            <img class="imgs" src="IMG/inventario.png"/>
+
+         </td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60">
+           <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btnSiguiente"/>
+        </td>
+        <td class="auto-style48"></td>
+    </tr>
+     <tr>
+        <td class="auto-style58">&nbsp;</td>
+        <td class="auto-style62"></td>
+        <td class="auto-style63"></td>
+        <td class="auto-style57"></td>
+        <td class="auto-style64"></td>
+        <td class="auto-style15"></td>
+        <td class="auto-style60"></td>
         <td class="auto-style48"></td>
     </tr>
 </table>
