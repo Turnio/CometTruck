@@ -71,15 +71,16 @@
           <Property Name="servicioInventario" Type="bit" />
           <Property Name="estado" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="Empresa">
-          <Property Name="idEmpresa" Type="int" />
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="rut" Type="varchar" MaxLength="50" />
           <Property Name="razonsocial" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="direccion" Type="varchar" MaxLength="50" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="Fletero">
           <Key>
             <PropertyRef Name="idFletero" />
@@ -147,6 +148,7 @@ advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una c
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fletero" EntityType="Self.Fletero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Licencias" EntityType="Self.Licencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
@@ -225,6 +227,16 @@ advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una c
           <Property Name="servicioInventario" Type="Boolean" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="razonsocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Fletero">
           <Key>
             <PropertyRef Name="idFletero" />
@@ -286,12 +298,13 @@ advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una c
           <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="vencRevTec" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityContainer Name="mudanzaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SampleEntityFramework" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bancos" EntityType="Self.Bancos" />
           <EntitySet Name="Capacidad" EntityType="Self.Capacidad" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Comuna" EntityType="Self.Comuna" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
           <EntitySet Name="Fletero" EntityType="Self.Fletero" />
           <EntitySet Name="Licencias" EntityType="Self.Licencias" />
           <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" />
@@ -304,7 +317,7 @@ advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una c
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="mudanzaModelStoreContainer" CdmEntityContainer="mudanzaEntities">
+        <EntityContainerMapping StorageEntityContainer="mudanzaModelStoreContainer" CdmEntityContainer="SampleEntityFramework">
           <EntitySetMapping Name="Bancos">
             <EntityTypeMapping TypeName="mudanzaModel.Bancos">
               <MappingFragment StoreEntitySet="Bancos">
@@ -373,6 +386,17 @@ advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una c
                 <ScalarProperty Name="servicioEmbalaje" ColumnName="servicioEmbalaje" />
                 <ScalarProperty Name="servicioInventario" ColumnName="servicioInventario" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="mudanzaModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="razonsocial" ColumnName="razonsocial" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

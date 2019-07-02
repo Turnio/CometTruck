@@ -11,10 +11,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
-public partial class mudanzaEntities : DbContext
+public partial class SampleEntityFramework : DbContext
 {
-    public mudanzaEntities()
-        : base("name=mudanzaEntities")
+    public SampleEntityFramework()
+        : base("name=SampleEntityFramework")
     {
     }
 
@@ -28,6 +28,7 @@ public partial class mudanzaEntities : DbContext
     public virtual DbSet<Cliente> Cliente { get; set; }
     public virtual DbSet<Comuna> Comuna { get; set; }
     public virtual DbSet<Cotizacion> Cotizacion { get; set; }
+    public virtual DbSet<Empresa> Empresa { get; set; }
     public virtual DbSet<Fletero> Fletero { get; set; }
     public virtual DbSet<Licencias> Licencias { get; set; }
     public virtual DbSet<MetodoPago> MetodoPago { get; set; }
