@@ -142,7 +142,7 @@
     <tr>
         <td class="auto-style11">Telefono</td>
         <td class="auto-style12">
-            <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtTelefono" runat="server" TextMode="Phone"></asp:TextBox>
         </td>
         <td class="auto-style13"></td>
         <td class="auto-style14"></td>
@@ -154,7 +154,7 @@
     <tr>
         <td class="auto-style6">Email</td>
         <td class="auto-style8">
-            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" TextMode="Email"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -166,7 +166,7 @@
     <tr>
         <td class="auto-style6">Fecha de retiro</td>
         <td class="auto-style8">
-            <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -178,7 +178,7 @@
     <tr>
         <td class="auto-style6">Hora de retiro</td>
         <td class="auto-style8">
-            <asp:TextBox ID="txtHora" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtHora" runat="server" TextMode="Time"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -251,7 +251,7 @@
     <tr>
         <td>Teléfono</td>
         <td>
-            <asp:TextBox ID="txtTelefonoDestino" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtTelefonoDestino" runat="server" TextMode="Phone"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -263,7 +263,7 @@
     <tr>
         <td>Email</td>
         <td>
-            <asp:TextBox ID="txtEmailDestino" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEmailDestino" runat="server" TextMode="Email"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -275,7 +275,7 @@
     <tr>
         <td>Fecha de llegada</td>
         <td>
-            <asp:TextBox ID="txtFechaLlegada" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtFechaLlegada" runat="server" TextMode="Date"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
@@ -287,7 +287,7 @@
     <tr>
         <td>Hora de llegada</td>
         <td>
-            <asp:TextBox ID="txtHoraLlegada" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtHoraLlegada" runat="server" TextMode="Time"></asp:TextBox>
         </td>
         <td class="auto-style7">&nbsp;</td>
         <td class="auto-style9">&nbsp;</td>
