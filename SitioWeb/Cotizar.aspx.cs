@@ -55,10 +55,10 @@ public partial class Cotizar : System.Web.UI.Page
         {
             var list = db.Vehiculo;
 
-            droplistTCamion.Items.Add("-- Seleccionar item --");
+            droplistTVehiculo.Items.Add("-- Seleccionar item --");
             foreach (var objVehiculo in list)
             {
-                droplistTCamion.Items.Add(objVehiculo.idVehiculo + ".- " + objVehiculo.tipo);
+                droplistTVehiculo.Items.Add(objVehiculo.idVehiculo + ".- " + objVehiculo.tipo);
             }
         }
 
