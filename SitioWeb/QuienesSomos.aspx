@@ -6,7 +6,7 @@
             width: 100%;
         }
         .auto-style6 {
-            color: #000000;
+            color: #336666;
             background-color: #FFFFFF;
         }
         .auto-style7 {
@@ -49,6 +49,7 @@
             height: 52px;
         }
         .auto-style18 {
+            color: #336666;
             width: 100%;
             height: 77px;
             margin-right: 582px;

@@ -9,16 +9,10 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
-        .dynamicHoverStyle{
-            background: #336666;
-        }
-        .dynamicMenuStyle{
-            background: #336666;
-         }
         .auto-style1 {
             text-align: center;
         }
-        .auto-style2 {
+       .auto-style2 {
             width: 470px;
             height: 91px;
             text-align: center;
@@ -42,26 +36,29 @@
 
         <table style="width:100%">
             <tr>
-                <td class="auto-style2"><img src="IMG/comet.png" class="auto-style5"/></td>
+                <td class="auto-style2"><a href="inicio.aspx"><img src="IMG/comet.png" class="auto-style5"/></a></td>
                 <td class="auto-style3"></td>
                 <td class="auto-style4"><img src="IMG/astroIN.png" /></td>
                 <td class="auto-style4"><img src="IMG/astroOUT.png" /></td>
             </tr>
             <tr class="auto-style1">
                 <td colspan="4" >
-                     <asp:Menu ID="menuArbol" runat="server" Orientation="Horizontal" Height="60px" Width="100%" BackColor="#ff9933" ForeColor="White" Font-Names="Microsoft YaHei" Font-Bold="True" Font-Size="X-Large" Font-Strikeout="False" >
-                         <DynamicHoverStyle CssClass="dynamicHoverStyle" />
-                        <DynamicMenuItemStyle BackColor="#ff9933" Font-Size="Large" ForeColor="White" Width="100%" />
-                         <DynamicMenuStyle CssClass="dynamicMenuStyle" />
+                     <asp:Menu ID="menuArbol" runat="server" Orientation="Horizontal" Height="60px" Width="100%" BackColor="#ff9933" ForeColor="White" Font-Names="Microsoft YaHei" Font-Bold="True" Font-Size="X-Large" Font-Strikeout="False" StaticEnableDefaultPopOutImage="False" >
+                         <DynamicHoverStyle BackColor="#336666" />
+                        <DynamicMenuItemStyle BackColor="#ff9933" Font-Size="Large" ForeColor="White" Width="319px" Height="50px" />
+                         <DynamicMenuStyle BackColor="#336666" />
                         <Items>
                             <asp:MenuItem Text="INICIO" Value="INICIO" NavigateUrl="~/inicio.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="COTIZAR" Value="COTIZAR" NavigateUrl="~/Cotizar.aspx">
+                            <asp:MenuItem Text="COTIZAR" Value="COTIZAR">
+                                <asp:MenuItem NavigateUrl="~/Cotizar.aspx" Text="Nueva Cotización" Value="Nueva Cotización"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/cotizarResumen.aspx" Text="Resumen Cotización" Value="Resumen Cotización"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem Text="QUIÉNES SOMOS" Value="QUIÉNES SOMOS" NavigateUrl="~/QuienesSomos.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="CONTACTO" Value="CONTACTO"></asp:MenuItem>
                         </Items>
-                         <StaticHoverStyle BackColor="#336666" />
+                         <StaticHoverStyle BackColor="#336666" Height="60px" />
+                         <StaticMenuStyle />
+                         <StaticSelectedStyle />
                     </asp:Menu>
 
                  </td>
