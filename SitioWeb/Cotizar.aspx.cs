@@ -34,7 +34,7 @@ public partial class Cotizar : System.Web.UI.Page
 
 
             droplistComuna.Items.Add("-- Seleccionar item --");
-            droplistComunaDestino.Items.Add("-- Seleccionar itme --");
+            droplistComunaDestino.Items.Add("-- Seleccionar item --");
             foreach (var objComuna in list)
             {
                 droplistComuna.Items.Add(objComuna.idComuna + ".- " + objComuna.nombre);
