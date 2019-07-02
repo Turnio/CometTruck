@@ -45,7 +45,7 @@
 
     <table id="borde">
         <tr>
-            <td rowspan="8">
+            <td>
                 <p class="redondela">3</p>
             </td>
             <td class="titulo"></td>
