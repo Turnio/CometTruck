@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SampleEntityFrameworrkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bancos">
           <Key>
             <PropertyRef Name="idBancos" />
@@ -71,16 +71,15 @@
           <Property Name="servicioInventario" Type="bit" />
           <Property Name="estado" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'mudanza.dbo.Empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
         <EntityType Name="Empresa">
-          <Key>
-            <PropertyRef Name="idEmpresa" />
-          </Key>
-          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" />
           <Property Name="rut" Type="varchar" MaxLength="50" />
           <Property Name="razonsocial" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="direccion" Type="varchar" MaxLength="50" />
-        </EntityType>
+        </EntityType>-->
         <EntityType Name="Fletero">
           <Key>
             <PropertyRef Name="idFletero" />
@@ -142,13 +141,12 @@
           <Property Name="tipo" Type="varchar" MaxLength="50" />
           <Property Name="vencRevTec" Type="date" />
         </EntityType>
-        <EntityContainer Name="SampleEntityFrameworrkModelStoreContainer">
+        <EntityContainer Name="mudanzaModelStoreContainer">
           <EntitySet Name="Bancos" EntityType="Self.Bancos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Capacidad" EntityType="Self.Capacidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comuna" EntityType="Self.Comuna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fletero" EntityType="Self.Fletero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Licencias" EntityType="Self.Licencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" Schema="dbo" store:Type="Tables" />
@@ -160,7 +158,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SampleEntityFrameworrkModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="mudanzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Bancos">
           <Key>
             <PropertyRef Name="idBancos" />
@@ -227,16 +225,6 @@
           <Property Name="servicioInventario" Type="Boolean" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Empresa">
-          <Key>
-            <PropertyRef Name="idEmpresa" />
-          </Key>
-          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="rut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="razonsocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Fletero">
           <Key>
             <PropertyRef Name="idFletero" />
@@ -298,13 +286,12 @@
           <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="vencRevTec" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityContainer Name="SampleEntityFramework" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="mudanzaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bancos" EntityType="Self.Bancos" />
           <EntitySet Name="Capacidad" EntityType="Self.Capacidad" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Comuna" EntityType="Self.Comuna" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" />
-          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
           <EntitySet Name="Fletero" EntityType="Self.Fletero" />
           <EntitySet Name="Licencias" EntityType="Self.Licencias" />
           <EntitySet Name="MetodoPago" EntityType="Self.MetodoPago" />
@@ -316,10 +303,10 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SampleEntityFrameworrkModelStoreContainer" CdmEntityContainer="SampleEntityFramework">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mudanzaModelStoreContainer" CdmEntityContainer="mudanzaEntities">
           <EntitySetMapping Name="Bancos">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Bancos">
+            <EntityTypeMapping TypeName="mudanzaModel.Bancos">
               <MappingFragment StoreEntitySet="Bancos">
                 <ScalarProperty Name="idBancos" ColumnName="idBancos" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -327,7 +314,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Capacidad">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Capacidad">
+            <EntityTypeMapping TypeName="mudanzaModel.Capacidad">
               <MappingFragment StoreEntitySet="Capacidad">
                 <ScalarProperty Name="idCapacidad" ColumnName="idCapacidad" />
                 <ScalarProperty Name="TaraKG" ColumnName="TaraKG" />
@@ -335,7 +322,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Cliente">
+            <EntityTypeMapping TypeName="mudanzaModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="rut" ColumnName="rut" />
@@ -347,7 +334,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Comuna">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Comuna">
+            <EntityTypeMapping TypeName="mudanzaModel.Comuna">
               <MappingFragment StoreEntitySet="Comuna">
                 <ScalarProperty Name="idComuna" ColumnName="idComuna" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -356,7 +343,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cotizacion">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Cotizacion">
+            <EntityTypeMapping TypeName="mudanzaModel.Cotizacion">
               <MappingFragment StoreEntitySet="Cotizacion">
                 <ScalarProperty Name="idCotizacion" ColumnName="idCotizacion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -389,19 +376,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Empresa">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Empresa">
-              <MappingFragment StoreEntitySet="Empresa">
-                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-                <ScalarProperty Name="rut" ColumnName="rut" />
-                <ScalarProperty Name="razonsocial" ColumnName="razonsocial" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Fletero">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Fletero">
+            <EntityTypeMapping TypeName="mudanzaModel.Fletero">
               <MappingFragment StoreEntitySet="Fletero">
                 <ScalarProperty Name="idFletero" ColumnName="idFletero" />
                 <ScalarProperty Name="rut" ColumnName="rut" />
@@ -412,7 +388,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Licencias">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Licencias">
+            <EntityTypeMapping TypeName="mudanzaModel.Licencias">
               <MappingFragment StoreEntitySet="Licencias">
                 <ScalarProperty Name="idLicencias" ColumnName="idLicencias" />
                 <ScalarProperty Name="clase" ColumnName="clase" />
@@ -421,7 +397,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MetodoPago">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.MetodoPago">
+            <EntityTypeMapping TypeName="mudanzaModel.MetodoPago">
               <MappingFragment StoreEntitySet="MetodoPago">
                 <ScalarProperty Name="idMetodoPago" ColumnName="idMetodoPago" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -430,7 +406,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipoCuenta">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.TipoCuenta">
+            <EntityTypeMapping TypeName="mudanzaModel.TipoCuenta">
               <MappingFragment StoreEntitySet="TipoCuenta">
                 <ScalarProperty Name="idTipoCuent" ColumnName="idTipoCuent" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -439,7 +415,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TransferenciaBancaria">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.TransferenciaBancaria">
+            <EntityTypeMapping TypeName="mudanzaModel.TransferenciaBancaria">
               <MappingFragment StoreEntitySet="TransferenciaBancaria">
                 <ScalarProperty Name="idTransferenciaBancaria" ColumnName="idTransferenciaBancaria" />
                 <ScalarProperty Name="banco" ColumnName="banco" />
@@ -455,7 +431,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vehiculo">
-            <EntityTypeMapping TypeName="SampleEntityFrameworrkModel.Vehiculo">
+            <EntityTypeMapping TypeName="mudanzaModel.Vehiculo">
               <MappingFragment StoreEntitySet="Vehiculo">
                 <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
                 <ScalarProperty Name="marca" ColumnName="marca" />
@@ -472,7 +448,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -483,7 +459,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
