@@ -112,11 +112,11 @@ public partial class cotizarResumen : System.Web.UI.Page
 
         mensaje.BodyEncoding = System.Text.Encoding.UTF8;
         mensaje.IsBodyHtml = true;
-        mensaje.From = new System.Net.Mail.MailAddress("bastian.vidal05@inacapmail.cl"); // mi correo 
+        mensaje.From = new System.Net.Mail.MailAddress(""); // correo destinatario
 
         System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient(); // nuevo cliente smtp
 
-        cliente.Credentials = new System.Net.NetworkCredential("bastian.vidal05@inacapmail.cl", "09101998"); // correo y contraseña
+        cliente.Credentials = new System.Net.NetworkCredential("", ""); // credenciales de correo del cual se envia , no dejar credenciales escritas, hay un sacando las pass
 
         cliente.Port = 587; // puerto
         cliente.EnableSsl = true; // seguridad ssl
