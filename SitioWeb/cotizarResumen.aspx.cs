@@ -116,7 +116,7 @@ public partial class cotizarResumen : System.Web.UI.Page
 
         System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient(); // nuevo cliente smtp
 
-        cliente.Credentials = new System.Net.NetworkCredential("", ""); // credenciales de correo del cual se envia , no dejar credenciales escritas, hay un sacando las pass
+        cliente.Credentials = new System.Net.NetworkCredential("asd", "000"); // credenciales de correo del cual se envia , no dejar credenciales escritas, hay un sacando las pass
 
         cliente.Port = 587; // puerto
         cliente.EnableSsl = true; // seguridad ssl
