@@ -65,10 +65,11 @@ public partial class Cotizacion
     public string numeroDestino { get; set; }
     public string comunaDestino { get; set; }
     public string tipoviviendaDestino { get; set; }
-    public Nullable<bool> servicioPioneta { get; set; }
+    public bool servicioPioneta { get; set; }
     public Nullable<bool> servicioEmbalaje { get; set; }
     public Nullable<bool> servicioInventario { get; set; }
     public string estado { get; set; }
+    public Nullable<int> total { get; set; }
 }
 
 public partial class Empresa

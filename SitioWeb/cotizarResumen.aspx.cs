@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,6 +9,9 @@ using System.Web.UI.WebControls;
 public partial class cotizarResumen : System.Web.UI.Page
 {
     Cotizacion objCotizacion = new Cotizacion();
+    int codigoPostalTotal = 0;
+    int codigoCotizacionRealizada = 0;
+    long idcotizacion = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -52,8 +56,8 @@ public partial class cotizarResumen : System.Web.UI.Page
         lblEmbalaje.Visible = (bool)objCotizacion.servicioEmbalaje;
         lblPeoneta.Visible = (bool)objCotizacion.servicioPioneta;
         lblInventario.Visible = (bool)objCotizacion.servicioInventario;
-        
 
+        calcularCosto();
      }
 
     protected void btnSiguiente_Click(object sender, EventArgs e)
@@ -63,6 +67,18 @@ public partial class cotizarResumen : System.Web.UI.Page
 
     public void envioCorreo()
     {
+        objCotizacion.comunaOrigen = regexAlfabetico(objCotizacion.comunaOrigen);
+        objCotizacion.comunaDestino = regexAlfabetico(objCotizacion.comunaDestino);
+        objCotizacion.tipoVehiculo = regexAlfabetico(objCotizacion.tipoVehiculo);
+        objCotizacion.total = codigoPostalTotal;
+
+        SampleEntityFramework db = new SampleEntityFramework();
+        db.Cotizacion.Add(objCotizacion);
+        db.SaveChanges();
+        idcotizacion = objCotizacion.idCotizacion;
+
+        
+
         // informacion
         System.Net.Mail.MailMessage mensaje = new System.Net.Mail.MailMessage();
 
@@ -73,11 +89,24 @@ public partial class cotizarResumen : System.Web.UI.Page
 
 
         mensaje.Body =
-            "Cotización de Mudanza <br/> "+
+            "<h1>Cotización de Mudanza</h1> <br/> " +
+            "N° Cotización:" +""+idcotizacion +"<br/>" +
             "Nombre encargado: " + nomOrigen.Text + " " + apeOrigen.Text + "<br/>" +
             "Email encargado: " + lblEmailOrigen.Text + "<br/>" +
-            "Servicios Contratados: " + serviciosContratados() +"<br/>" + 
-            "Total: $2000000"        
+            "Servicios Contratados: " + serviciosContratados() + "<br/><br/>" +
+
+            "Dirección de Origen: " + regexAlfabetico(comOrigen.Text) + " " + dirOrigen.Text + " " + numOrigen.Text + "<br/>" +
+            "Fecha de retiro: " + fechaOrigen.Text+ "<br/>" +
+            "Hora de retiro: "+horaOrigen.Text + "<br/><br/>"+
+            
+            "Dirección de Destino: " + regexAlfabetico(comDestino.Text) + " " + dirDestino.Text+ " " + numDestino.Text + "<br/>" +
+            "Fecha de entrega: " + fechaDestino.Text + "<br/>" +
+            "Hora de entrega: " + horaDestino.Text + "<br/><br/>" +
+
+            "Tipo de camion solicitado: "+ regexAlfabetico(lblTCamion.Text) +"<br/><br/>"+
+
+            "Total: $" + codigoPostalTotal;
+                
             ; // cuenrpo mensaje
 
 
@@ -96,6 +125,7 @@ public partial class cotizarResumen : System.Web.UI.Page
 
         try
         {
+            
             cliente.Send(mensaje);
             lblMensaje.Text = "Mensaje enviado";
             lblMensaje.ForeColor = System.Drawing.Color.Orange;
@@ -137,4 +167,73 @@ public partial class cotizarResumen : System.Web.UI.Page
         return servicios;
     }
     
+    public void calcularCosto()
+    {
+
+        using (SampleEntityFramework db = new SampleEntityFramework())
+        {
+            
+            int baseMudanza = 70000;
+
+            Comuna objComunaOrigen = new Comuna();
+            int idComunaOrigen = Convert.ToInt32(regexNumerico(comOrigen.Text));
+            objComunaOrigen = db.Comuna.Where(s => s.idComuna == idComunaOrigen).First();
+            lblPostal.Text = objComunaOrigen.codigopostal;
+
+            Comuna objComunaDestino = new Comuna();
+            int idComunaDestino = Convert.ToInt32(regexNumerico(comDestino.Text));
+            objComunaDestino = db.Comuna.Where(s => s.idComuna == idComunaDestino).First();
+
+            int codigoPostalOrigen = Convert.ToInt32(objComunaOrigen.codigopostal);
+            int codigoPostalDestino = Convert.ToInt32(objComunaDestino.codigopostal);
+            
+            if(codigoPostalDestino > codigoPostalOrigen)
+            {
+                codigoPostalTotal = (codigoPostalDestino - codigoPostalOrigen) + baseMudanza;
+
+            }else if (codigoPostalDestino < codigoPostalOrigen)
+            {
+                codigoPostalTotal = (codigoPostalOrigen - codigoPostalDestino) + baseMudanza;
+
+            }else if (codigoPostalDestino == codigoPostalOrigen)
+            {
+                codigoPostalTotal = baseMudanza;
+            }
+
+            codigoPostalTotal = codigoPostalTotal / 10;
+
+            if (objCotizacion.servicioEmbalaje == true)
+            {
+                codigoPostalTotal += 30000;
+            }
+            if (objCotizacion.servicioPioneta == true)
+            {
+                codigoPostalTotal += 30000;
+            }
+            if (objCotizacion.servicioInventario == true)
+            {
+                codigoPostalTotal += 30000;
+            }
+
+        }
+    }
+
+    public string regexAlfabetico(string input)
+    {
+        string output;
+
+        output = Regex.Replace(input, @"([0-9])+\.+\-","");
+
+        return output;
+    }
+
+    public string regexNumerico(string input)
+    {
+        string output;
+
+        //Se realiza un análisis de Regex al string enviado y se declara el resultado en otra variable
+        output = Regex.Replace(input, @"[^\d]", "");
+
+        return output;
+    }//Fin regexNumerio
 }

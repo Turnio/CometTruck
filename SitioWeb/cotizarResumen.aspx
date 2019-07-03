@@ -308,7 +308,9 @@
         </tr>
         <tr>
             <td class="auto-style6"></td>
-            <td class="auto-style28"></td>
+            <td class="auto-style28">
+                <asp:Label ID="lblPostal" runat="server" Text="Label"></asp:Label>
+            </td>
             <td class="auto-style39">
                 <asp:Label ID="lblEmailOrigen" runat="server" Text="Label"></asp:Label>
             </td>

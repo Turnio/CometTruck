@@ -99,7 +99,7 @@ public partial class Cotizar : System.Web.UI.Page
             objCotizacion.servicioEmbalaje = checkEmbalaje.Checked;
             objCotizacion.servicioInventario = checkInventario.Checked;
             objCotizacion.servicioPioneta = checkPeoneta.Checked;
-
+            
             Session["cotizacion"] = objCotizacion;
 
             Response.Redirect("cotizarResumen.aspx");
@@ -111,12 +111,13 @@ public partial class Cotizar : System.Web.UI.Page
         }
     }
 
+    //Elimina los caracteres alfabeticos de un string
     public string regexNumerico(string input)
     {
         string output;
 
         //Se realiza un análisis de Regex al string enviado y se declara el resultado en otra variable
-        output = Regex.Replace(input, @"[^\d]", "");
+        output = Regex.Replace(input, @"[^\\d]", "");
 
         return output;
     }//Fin regexNumerio
@@ -153,4 +154,14 @@ public partial class Cotizar : System.Web.UI.Page
             txtEmailDestino.Enabled = true;
         }
     }
+
+    public string regexAlfabetico(string input)
+    {
+        string output;
+
+        output = Regex.Replace(input, "([0-9])+\\.+\\-", "");
+
+        return output;
+    }
+
 }

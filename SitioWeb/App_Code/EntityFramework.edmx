@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mudanzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bancos">
           <Key>
             <PropertyRef Name="idBancos" />
@@ -66,9 +66,10 @@
           <Property Name="numeroDestino" Type="varchar" MaxLength="50" />
           <Property Name="comunaDestino" Type="varchar" MaxLength="50" />
           <Property Name="tipoviviendaDestino" Type="varchar" MaxLength="50" />
-          <Property Name="servicioPioneta" Type="bit" />
+          <Property Name="servicioPioneta" Type="bit" Nullable="false" />
           <Property Name="servicioEmbalaje" Type="bit" />
           <Property Name="servicioInventario" Type="bit" />
+          <Property Name="total" Type="int" />
           <Property Name="estado" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Empresa">
@@ -156,8 +157,7 @@
           <EntitySet Name="TransferenciaBancaria" EntityType="Self.TransferenciaBancaria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mudanzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -222,10 +222,11 @@
           <Property Name="numeroDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="comunaDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipoviviendaDestino" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="servicioPioneta" Type="Boolean" />
+          <Property Name="servicioPioneta" Type="Boolean" Nullable="false" />
           <Property Name="servicioEmbalaje" Type="Boolean" />
           <Property Name="servicioInventario" Type="Boolean" />
           <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total" Type="Int32" />
         </EntityType>
         <EntityType Name="Empresa">
           <Key>
@@ -358,6 +359,7 @@
           <EntitySetMapping Name="Cotizacion">
             <EntityTypeMapping TypeName="mudanzaModel.Cotizacion">
               <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="total" ColumnName="total" />
                 <ScalarProperty Name="idCotizacion" ColumnName="idCotizacion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellidos" ColumnName="apellidos" />
