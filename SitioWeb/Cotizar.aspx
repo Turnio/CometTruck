@@ -119,6 +119,16 @@
         }
         
 
+        .auto-style76 {
+            font-size: large;
+            color: #CC3300;
+        }
+        .auto-style77 {
+            color: #FF9933;
+            font-size: large;
+        }
+        
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -199,7 +209,7 @@
     <tr>
         <td class="auto-style58">Email</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtEmail" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -211,7 +221,7 @@
     <tr>
         <td class="auto-style58">Fecha de retiro</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtFecha" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtFecha" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -223,7 +233,7 @@
     <tr>
         <td class="auto-style58">Hora de retiro</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtHora" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtHora" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -238,8 +248,9 @@
         </td>    
         <td class="titulo">Dirección de destino</td>
         <td class="auto-style63"></td>
-        <td class="auto-style57"></td>
-        <td class="auto-style64"></td>
+        <td colspan="2"><strong>
+            <asp:CheckBox ID="checkDatosDestino" runat="server" AutoPostBack="True" CssClass="auto-style77" OnCheckedChanged="checkDatosDestino_CheckedChanged" Text=" Recibe la misma persona" />
+            </strong></td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
@@ -302,7 +313,7 @@
     <tr>
         <td class="auto-style58">Email</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtEmailDestino" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtEmailDestino" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -314,7 +325,7 @@
     <tr>
         <td class="auto-style58">Fecha de llegada</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtFechaLlegada" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtFechaLlegada" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -326,7 +337,7 @@
     <tr>
         <td class="auto-style58">Hora de llegada</td>
         <td class="auto-style62">
-            <asp:TextBox ID="txtHoraLlegada" runat="server" Width="175px"></asp:TextBox>
+            <asp:TextBox ID="txtHoraLlegada" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
@@ -357,7 +368,9 @@
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
-        <td class="auto-style64"></td>
+        <td class="auto-style64"><strong>
+            <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style76" Text="[lblMensaje]" Visible="False"></asp:Label>
+            </strong></td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
@@ -409,7 +422,7 @@
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
         <td class="auto-style60">
-           <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btnSiguiente"/>
+           <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btnSiguiente" OnClick="btnSiguiente_Click"/>
         </td>
         <td class="auto-style48"></td>
     </tr>

@@ -121,6 +121,28 @@
             width: 586px;
             opacity: 0.65;
         }
+        .auto-style50 {
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: large;
+            height: 30px;
+            width: 150px;
+            background: #ff9933;
+        }
+        .auto-style51 {
+            color: #CC3300;
+            font-size: x-large;
+        }
+        .auto-style52 {
+            width: 639px;
+            opacity: 0.6;
+            height: 24px;
+        }
+        .auto-style53 {
+            width: 208px;
+            opacity: 0.6;
+            height: 24px;
+        }
      </style>   
 
 </asp:Content>
@@ -143,21 +165,21 @@
         </tr>
         <tr>
             <td class="auto-style6"></td>
-            <td class="auto-style28">Dirección de origen</td>
+            <td class="auto-style28"><strong>Dirección de origen</strong></td>
             <td class="auto-style35">
                 <asp:Label ID="dirOrigen" runat="server" Text="Brown Norte"></asp:Label>
             </td>
             <td class="auto-style40">
                 <asp:Label ID="numOrigen" runat="server" Text="209"></asp:Label>
             </td>
-            <td class="auto-style12">Dirección de destino</td>
+            <td class="auto-style12"><strong>Dirección de destino</strong></td>
             <td class="auto-style38">
                 <asp:Label ID="dirDestino" runat="server" Text="San Diego"></asp:Label>
             </td>
             <td class="auto-style46">
                 <asp:Label ID="numDestino" runat="server" Text="2156"></asp:Label>
             </td>
-            <td class="auto-style49">Servicios Adicionales</td>
+            <td class="auto-style49"><strong>Servicios Adicionales</strong></td>
         </tr>
         <tr>
             <td class="auto-style6"></td>
@@ -183,39 +205,41 @@
             <td class="auto-style38"></td>
             <td class="auto-style46"></td>
             <td class="auto-style16">
-                <asp:Label ID="Label2" runat="server" Text="serv1">Peoneta</asp:Label>
+                <asp:Label ID="lblPeoneta" runat="server" Text="Peoneta"></asp:Label>
             </td>
 
         </tr>
         <tr>
             <td class="auto-style6"></td>
-            <td class="auto-style28">Fecha de comienzo</td>
+            <td class="auto-style28"><strong>Fecha de comienzo</strong></td>
             <td class="auto-style35">
                 <asp:Label ID="fechaOrigen" runat="server" Text="21-06-2019"></asp:Label>
             </td>
             <td class="auto-style40"></td>
-            <td class="auto-style12">Fecha de finalización</td>
+            <td class="auto-style12"><strong>Fecha de finalización</strong></td>
             <td class="auto-style38">
                 <asp:Label ID="fechaDestino" runat="server" Text="21-06-2019"></asp:Label>
             </td>
             <td class="auto-style46"></td>
             <td class="auto-style16">
-                <asp:Label ID="Label3" runat="server" Text="serv2">Embalaje</asp:Label>
+                <asp:Label ID="lblEmbalaje" runat="server" Text="Embalaje"></asp:Label>
             </td>
 
         </tr>
         <tr>
-            <td class="auto-style6"></td>
-            <td class="auto-style28">&nbsp;</td>
-            <td class="auto-style35">
-                <asp:Label ID="Label1" runat="server" Text="9:00"></asp:Label>
+            <td class="auto-style9"></td>
+            <td class="auto-style52"><strong>Hora de inicio</strong></td>
+            <td class="auto-style33">
+                <asp:Label ID="horaOrigen" runat="server" Text="9:00"></asp:Label>
             </td>
-            <td class="auto-style40"></td>
-            <td class="auto-style12"></td>
-            <td class="auto-style38">17:00</td>
-            <td class="auto-style46"></td>
-            <td class="auto-style16">
-                <asp:Label ID="Label4" runat="server" Text="serv3">Inventario</asp:Label>
+            <td class="auto-style41"></td>
+            <td class="auto-style53"><strong>Hora de finalización</strong></td>
+            <td class="auto-style45">
+                <asp:Label ID="horaDestino" runat="server" Text="17:00"></asp:Label>
+            </td>
+            <td class="auto-style47"></td>
+            <td class="auto-style44">
+                <asp:Label ID="lblInventario" runat="server" Text="Inventario"></asp:Label>
             </td>
 
         </tr>
@@ -231,21 +255,23 @@
         </tr>
         <tr>
             <td class="auto-style6"></td>
-            <td class="auto-style28">Encargado</td>
+            <td class="auto-style28"><strong>Encargado</strong></td>
             <td class="auto-style35">
                 <asp:Label ID="nomOrigen" runat="server" Text="Juan Carlos"></asp:Label>
             </td>
             <td class="auto-style40">
                 <asp:Label ID="apeOrigen" runat="server" Text="Perez Santelices"></asp:Label>
             </td>
-            <td class="auto-style12">Encargado de recepción</td>
+            <td class="auto-style12"><strong>Encargado de recepción</strong></td>
             <td class="auto-style38">
                 <asp:Label ID="nomDestino" runat="server" Text="Florencia Andrea"></asp:Label>
             </td>
             <td class="auto-style46">
                 <asp:Label ID="apeDestino" runat="server" Text="Gomez Soto"></asp:Label>
             </td>
-            <td class="auto-style16"></td>
+            <td class="auto-style16"><strong>Tipo de camión</strong>:
+                <asp:Label ID="lblTCamion" runat="server" Text="Container"></asp:Label>
+            </td>
 
         </tr>
         <tr>
@@ -275,19 +301,25 @@
                 <asp:Label ID="telDestino" runat="server" Text="+56951234897"></asp:Label>
             </td>
             <td class="auto-style46"></td>
-            <td class="auto-style16"></td>
+            <td class="auto-style16"><strong>
+                <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style51" Text="[lblMensaje]" Visible="False"></asp:Label>
+                </strong></td>
 
         </tr>
         <tr>
             <td class="auto-style6"></td>
             <td class="auto-style28"></td>
-            <td class="auto-style39"></td>
+            <td class="auto-style39">
+                <asp:Label ID="lblEmailOrigen" runat="server" Text="Label"></asp:Label>
+            </td>
             <td class="auto-style40"></td>
             <td class="auto-style12"></td>
-            <td class="auto-style38"></td>
+            <td class="auto-style38">
+                <asp:Label ID="lblEmailDestino" runat="server" Text="Label"></asp:Label>
+            </td>
             <td class="auto-style46"></td>
             <td class="auto-style16">
-               <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" CssClass="btnSiguiente"/>
+               <asp:Button ID="btnSiguiente" runat="server" Text="Enviar Cotización" CssClass="auto-style50" OnClick="btnSiguiente_Click"/>
             </td>
 
         </tr>
