@@ -11,13 +11,20 @@ public partial class Cotizar : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //Llamado a los metodos para definir los dropList desde la base de datos
-        if (!IsPostBack)
-        {
-            definirDropListComuna();
-            definirDropListVehiculo();
-        }
+        try{
+            //Llamado a los metodos para definir los dropList desde la base de datos
+            if (!IsPostBack)
+            {
+                definirDropListComuna();
+                definirDropListVehiculo();
+            }
 
+        }
+        catch (Exception ex)
+        {
+            lblMensaje.Text = "Hubo en error";
+        }
+        
     }
 
 
@@ -67,48 +74,64 @@ public partial class Cotizar : System.Web.UI.Page
 
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
-        try
-        {
-            Cotizacion objCotizacion = new Cotizacion();
-            objCotizacion.nombre = txtNombre.Text;
-            objCotizacion.apellidos = txtApellidos.Text;
-            objCotizacion.rut = txtRut.Text;
-            objCotizacion.telefono = Convert.ToInt64(txtTelefono.Text);
-            objCotizacion.email = txtEmail.Text;
-            objCotizacion.fechaInicio = Convert.ToDateTime(txtFecha.Text);
-            objCotizacion.horaInicio = TimeSpan.Parse(txtHora.Text);
-            objCotizacion.calleOrigen = txtCalle.Text;
-            objCotizacion.numeroOrigen = txtNumDir.Text;
-            objCotizacion.comunaOrigen = droplistComuna.SelectedItem.Text;
-            objCotizacion.tipoviviendaOrigen = txtTVivienda.Text;
-
-            objCotizacion.nombreReceptor = txtNombreDestino.Text;
-            objCotizacion.apellidoReceptor = txtApellidosDestino.Text;
-            objCotizacion.rutReceptor = txtRutDestino.Text;
-            objCotizacion.telefonoReceptor = Convert.ToInt64(txtTelefonoDestino.Text);
-            objCotizacion.emailReceptor = txtEmailDestino.Text;
-            objCotizacion.fechaTermino = Convert.ToDateTime(txtFecha.Text);
-            objCotizacion.horaTermino = TimeSpan.Parse(txtHoraLlegada.Text);
-            objCotizacion.calleDestino = txtCalleDestino.Text;
-            objCotizacion.numeroDestino = txtNumDirDestino.Text;
-            objCotizacion.comunaDestino = droplistComunaDestino.SelectedItem.Text;
-            objCotizacion.tipoviviendaDestino = txtTViviendaDestino.Text;
-
-            objCotizacion.tipoVehiculo = DropListTVehiculo.SelectedItem.Text;
-
-            objCotizacion.servicioEmbalaje = checkEmbalaje.Checked;
-            objCotizacion.servicioInventario = checkInventario.Checked;
-            objCotizacion.servicioPioneta = checkPeoneta.Checked;
-            
-            Session["cotizacion"] = objCotizacion;
-
-            Response.Redirect("cotizarResumen.aspx");
-        }
-        catch (Exception ex)
+        
+        if (txtNombre.Text==""||txtApellidos.Text==""||txtApellidosDestino.Text==""||txtCalle.Text==""||txtCalleDestino.Text==""||txtEmail.Text==""
+            ||txtEmailDestino.Text==""||txtFecha.Text==""||txtFechaLlegada.Text==""||txtHora.Text==""||txtHoraLlegada.Text==""||txtNombreDestino.Text==""
+            ||txtNumDir.Text==""||txtNumDirDestino.Text==""||txtRut.Text==""||txtRutDestino.Text==""||txtTelefono.Text==""||txtTelefonoDestino.Text==""
+            ||txtTVivienda.Text==""||txtTViviendaDestino.Text==""
+            )
         {
             lblMensaje.Text = "Debe ingresar todos los datos solicitados";
             lblMensaje.Visible = true;
         }
+        else
+        {
+            try
+            {
+                
+                Cotizacion objCotizacion = new Cotizacion();
+                objCotizacion.nombre = txtNombre.Text;
+                objCotizacion.apellidos = txtApellidos.Text;
+                objCotizacion.rut = txtRut.Text;
+                objCotizacion.telefono = Convert.ToInt64(txtTelefono.Text);
+                objCotizacion.email = txtEmail.Text;
+                objCotizacion.fechaInicio = Convert.ToDateTime(txtFecha.Text);
+                objCotizacion.horaInicio = TimeSpan.Parse(txtHora.Text);
+                objCotizacion.calleOrigen = txtCalle.Text;
+                objCotizacion.numeroOrigen = txtNumDir.Text;
+                objCotizacion.comunaOrigen = droplistComuna.SelectedItem.Text;
+                objCotizacion.tipoviviendaOrigen = txtTVivienda.Text;
+
+                objCotizacion.nombreReceptor = txtNombreDestino.Text;
+                objCotizacion.apellidoReceptor = txtApellidosDestino.Text;
+                objCotizacion.rutReceptor = txtRutDestino.Text;
+                objCotizacion.telefonoReceptor = Convert.ToInt64(txtTelefonoDestino.Text);
+                objCotizacion.emailReceptor = txtEmailDestino.Text;
+                objCotizacion.fechaTermino = Convert.ToDateTime(txtFecha.Text);
+                objCotizacion.horaTermino = TimeSpan.Parse(txtHoraLlegada.Text);
+                objCotizacion.calleDestino = txtCalleDestino.Text;
+                objCotizacion.numeroDestino = txtNumDirDestino.Text;
+                objCotizacion.comunaDestino = droplistComunaDestino.SelectedItem.Text;
+                objCotizacion.tipoviviendaDestino = txtTViviendaDestino.Text;
+
+                objCotizacion.tipoVehiculo = DropListTVehiculo.SelectedItem.Text;
+
+                objCotizacion.servicioEmbalaje = checkEmbalaje.Checked;
+                objCotizacion.servicioInventario = checkInventario.Checked;
+                objCotizacion.servicioPioneta = checkPeoneta.Checked;
+
+                Session["cotizacion"] = objCotizacion;
+
+                Response.Redirect("cotizarResumen.aspx");
+
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Hubo un error en el ingreso de Datos";
+                lblMensaje.Visible = true;
+            }
+        }
+        
     }
 
     //Elimina los caracteres alfabeticos de un string

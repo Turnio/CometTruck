@@ -153,16 +153,22 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtNombre" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <!--Buscar Expresion regular -->
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="*" ValidationExpression="^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Dirección</td>
         <td class="auto-style64">
             <asp:TextBox ID="txtCalle" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style49"></td>
+        <td class="auto-style49">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtCalle" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style60">Tipo de camión</td>
                 <td class="auto-style48">
             <asp:DropDownList ID="DropListTVehiculo" runat="server">
             </asp:DropDownList>
+        &nbsp;<!--<asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server" ControlToValidate="DropListTVehiculo" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>-->
         </td>
     </tr>
     <tr>
@@ -170,12 +176,16 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtApellidos" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtApellidos" ErrorMessage="*" ValidationExpression="^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Número</td>
         <td class="auto-style64">
             <asp:TextBox ID="txtNumDir" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style15"></td>
+        <td class="auto-style15">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtNumDir" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
     </tr>
@@ -184,11 +194,14 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtRut" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtRut" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Comuna</td>
         <td class="auto-style64">
             <asp:DropDownList ID="droplistComuna" runat="server"></asp:DropDownList>
         <td>
+            <!--<asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ControlToValidate="droplistComuna" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>-->
         <td class="auto-style60"></td>
         <td class="auto-style50"></td>
     </tr>
@@ -197,12 +210,16 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtTelefono" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtTelefono" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Tipo de vivienda</td>
         <td class="auto-style64"> 
             <asp:TextBox ID="txtTVivienda" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style15"></td>
+        <td class="auto-style15">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator11" runat="server" ControlToValidate="txtTVivienda" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style60"></td>
         <td class="auto-style47"></td>
     </tr>
@@ -211,7 +228,9 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtEmail" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtEmail" ErrorMessage="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
@@ -223,11 +242,15 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtFecha" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
-        <td class="auto-style60"></td>
+        <td class="auto-style60"><strong>
+            <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style76" Text="[lblMensaje]" Visible="False"></asp:Label>
+            </strong></td>
         <td class="auto-style48"></td>
     </tr>
     <tr>
@@ -235,11 +258,13 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtHora" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
-        <td class="auto-style60"></td>
+        <td class="auto-style60">&nbsp;</td>
         <td class="auto-style48"></td>
     </tr>
     <tr>       
@@ -260,12 +285,16 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtNombreDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator13" runat="server" ControlToValidate="txtNombreDestino" ErrorMessage="*" ValidationExpression="^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Dirección de destino</td>
         <td class="auto-style64">
             <asp:TextBox ID="txtCalleDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style49"></td>
+        <td class="auto-style49">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator20" runat="server" ControlToValidate="txtCalleDestino" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style60"></td>
     </tr>
     <tr>
@@ -273,13 +302,17 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtApellidosDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator14" runat="server" ControlToValidate="txtApellidosDestino" ErrorMessage="*" ValidationExpression="^(([A-za-z]+[\s]{1}[A-za-z]+)|([A-Za-z]+))$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Número</td>
         <td class="auto-style64">
             <asp:TextBox ID="txtNumDirDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style15"></td>
-        <td class="auto-style60"></td>
+        <td class="auto-style15">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator21" runat="server" ControlToValidate="txtNumDirDestino" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>
+        </td>
+        <td class="auto-style60">&nbsp;</td>
         <td class="auto-style48"></td>
     </tr>
     <tr>
@@ -287,12 +320,16 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtRutDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator15" runat="server" ControlToValidate="txtRutDestino" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Comuna</td>
         <td class="auto-style64">
             <asp:DropDownList ID="droplistComunaDestino" runat="server"></asp:DropDownList>
         </td>
-        <td class="auto-style15"></td>
+        <td class="auto-style15">
+            <!--<asp:RegularExpressionValidator ID="RegularExpressionValidator22" runat="server" ControlToValidate="droplistComunaDestino" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>-->
+        </td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
     </tr>
@@ -301,12 +338,16 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtTelefonoDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator16" runat="server" ControlToValidate="txtTelefonoDestino" ErrorMessage="*" ValidationExpression="^\d*\d$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57">Tipo de vivienda</td>
         <td class="auto-style64">
              <asp:TextBox ID="txtTViviendaDestino" runat="server" Width="175px"></asp:TextBox>
         </td>
-        <td class="auto-style15"></td>
+        <td class="auto-style15">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator23" runat="server" ControlToValidate="txtTViviendaDestino" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
     </tr>
@@ -315,7 +356,9 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtEmailDestino" runat="server" Width="175px" TextMode="Email"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator17" runat="server" ControlToValidate="txtEmailDestino" ErrorMessage="*" ValidationExpression="^[a-zA-Z0-9_]*$"></asp:RegularExpressionValidator>
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
@@ -327,7 +370,9 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtFechaLlegada" runat="server" Width="175px" TextMode="Date"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
@@ -339,11 +384,13 @@
         <td class="auto-style62">
             <asp:TextBox ID="txtHoraLlegada" runat="server" Width="175px" TextMode="Time"></asp:TextBox>
         </td>
-        <td class="auto-style63"></td>
+        <td class="auto-style63">
+            
+        </td>
         <td class="auto-style57"></td>
         <td class="auto-style64"></td>
         <td class="auto-style15"></td>
-        <td class="auto-style60"></td>
+        <td class="auto-style60">&nbsp;</td>
         <td class="auto-style48">
             &nbsp;</td>
     </tr>
@@ -368,9 +415,7 @@
         </td>
         <td class="auto-style63"></td>
         <td class="auto-style57"></td>
-        <td class="auto-style64"><strong>
-            <asp:Label ID="lblMensaje" runat="server" CssClass="auto-style76" Text="[lblMensaje]" Visible="False"></asp:Label>
-            </strong></td>
+        <td class="auto-style64">&nbsp;</td>
         <td class="auto-style15"></td>
         <td class="auto-style60"></td>
         <td class="auto-style48"></td>
