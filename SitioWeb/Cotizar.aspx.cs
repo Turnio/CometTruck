@@ -83,6 +83,7 @@ public partial class Cotizar : System.Web.UI.Page
         {
             lblMensaje.Text = "Debe ingresar todos los datos solicitados";
             lblMensaje.Visible = true;
+            //asd
         }
         else
         {
